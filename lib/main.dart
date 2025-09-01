@@ -13,6 +13,7 @@ class InstagramClone extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomeView(),
+      theme: ThemeData.dark(),
     );
   }
 }

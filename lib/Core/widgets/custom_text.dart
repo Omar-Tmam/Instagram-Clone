@@ -1,0 +1,29 @@
+import 'package:flutter/material.dart';
+
+class CustomText extends StatelessWidget {
+  const CustomText({
+    super.key,
+    required this.title,
+    this.fontSize,
+    this.fontWeight,
+    this.maxLines,
+    this.color = Colors.white,
+  });
+  final String title;
+  final double? fontSize;
+  final double? fontWeight;
+  final int? maxLines;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      maxLines: maxLines,
+      style: TextStyle(
+        fontSize: fontSize,
+        color: color,
+      ),
+    );
+  }
+}
