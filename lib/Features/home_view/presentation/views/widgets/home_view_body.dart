@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/Core/utils/responsive_font_size.dart';
 import 'package:instagram_clone/Core/widgets/custom_text.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -25,15 +26,19 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
-          CustomText(title: 'Enter Username : '),
+          CustomText(
+            title: 'Enter Username : ',
+            fontSize: getResponsiveFontSize(context, fontSize: 16),
+          ),
           SizedBox(
             height: 40,
           ),
           TextField(
             controller: controller,
             decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(),
-              focusedBorder: OutlineInputBorder(),
+              hintText: 'UserName',
+              enabledBorder: decoration(),
+              focusedBorder: decoration(),
             ),
           ),
           SizedBox(
@@ -41,10 +46,22 @@ class HomeViewBody extends StatelessWidget {
           ),
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton(onPressed: () {}, child: Text('Submit')),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
+              onPressed: () {},
+              child: CustomText(
+                color: Colors.black,
+                title: 'Submit',
+                fontSize: getResponsiveFontSize(context, fontSize: 16),
+              ),
+            ),
           ),
         ],
       ),
     );
+  }
+
+  OutlineInputBorder decoration() {
+    return OutlineInputBorder(borderSide: BorderSide(color: Colors.grey));
   }
 }
