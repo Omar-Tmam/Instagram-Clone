@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'theme_color.dart';
 
 class Nametag extends Equatable {
-	final List<int>? availableThemeColors;
+	final List<dynamic>? availableThemeColors;
 	final String? backgroundImageUrl;
 	final String? emoji;
 	final int? emojiColor;
@@ -30,7 +30,7 @@ class Nametag extends Equatable {
 	});
 
 	factory Nametag.fromJson(Map<String, dynamic> json) => Nametag(
-				availableThemeColors: json['available_theme_colors'] as List<int>?,
+				availableThemeColors: json['available_theme_colors'],
 				backgroundImageUrl: json['background_image_url'] as String?,
 				emoji: json['emoji'] as String?,
 				emojiColor: json['emoji_color'] as int?,

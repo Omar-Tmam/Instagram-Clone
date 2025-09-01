@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:instagram_clone/Core/utils/responsive_font_size.dart';
 import 'package:instagram_clone/Core/widgets/custom_text.dart';
+import 'package:instagram_clone/Features/user_view/presentation/manager/user_info_cubit/user_info_cubit.dart';
 import 'package:ionicons/ionicons.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -46,14 +48,39 @@ class HomeViewBody extends StatelessWidget {
           ),
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-              onPressed: () {},
-              child: CustomText(
-                color: Colors.black,
-                title: 'Submit',
-                fontSize: getResponsiveFontSize(context, fontSize: 16),
-              ),
+            child: BlocConsumer<UserInfoCubit, UserInfoState>(
+              listener: (context, state) {
+                if (state is UserInfoSuccess) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('User Info Loaded Successfully')));
+                  print(state.userInfoModel);
+                }
+                if (state is UserInfoFailure) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(state.errorMessage)));
+                }
+              },
+              builder: (context, state) {
+                return AbsorbPointer(
+                  absorbing: state is UserInfoLoading,
+                  child: ElevatedButton(
+                    style:
+                        ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                    onPressed: () async {
+                      await BlocProvider.of<UserInfoCubit>(context)
+                          .getUserInfo(userId: controller.text);
+                    },
+                    child: state is UserInfoLoading
+                        ? CircularProgressIndicator()
+                        : CustomText(
+                            color: Colors.black,
+                            title: 'Submit',
+                            fontSize:
+                                getResponsiveFontSize(context, fontSize: 16),
+                          ),
+                  ),
+                );
+              },
             ),
           ),
         ],
