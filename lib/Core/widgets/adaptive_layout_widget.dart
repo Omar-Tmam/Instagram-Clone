@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/Core/utils/size_config.dart';
 
 class AdaptiveLayout extends StatelessWidget {
   const AdaptiveLayout(
@@ -15,9 +16,9 @@ class AdaptiveLayout extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         log('window width = ${constraints.maxWidth}');
-        if (constraints.maxWidth < 800) {
+        if (constraints.maxWidth < SizeConfig.tablet) {
           return mobileLayout(context);
-        } else if (constraints.maxWidth < 1430) {
+        } else if (constraints.maxWidth < SizeConfig.desktop) {
           return tabletLayout(context);
         } else {
           return desktopLayout(context);
