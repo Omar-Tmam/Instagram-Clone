@@ -46,8 +46,7 @@ class CategoryInfo extends StatelessWidget {
           height: 10,
         ),
         FollowedBySection(
-          
-            followedByText: 'Followed by user1, user2 and 69k others',
+            followedByText: 'Followed by user1, user2,user3 and 69k others',
             images: images)
       ],
     );

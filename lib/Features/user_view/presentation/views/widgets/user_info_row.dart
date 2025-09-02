@@ -28,14 +28,21 @@ class UserInfoRow extends StatelessWidget {
             backgroundImage: NetworkImage(userImage),
           ),
         ),
-        SizedBox(
-          width: 28,
+        Expanded(
+          child: SizedBox(),
         ),
         UserNumColumn(title: 'posts', numbers: postsNumber),
-        SizedBox(width: 20),
+        Expanded(
+          child: SizedBox(),
+        ),
         UserNumColumn(title: 'followers', numbers: followersNumber),
-        SizedBox(width: 20),
+        Expanded(
+          child: SizedBox(),
+        ),
         UserNumColumn(title: 'following', numbers: followingNumber),
+        Expanded(
+          child: SizedBox(),
+        )
       ],
     );
   }

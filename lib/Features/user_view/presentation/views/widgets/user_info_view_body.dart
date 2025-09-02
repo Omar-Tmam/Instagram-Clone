@@ -16,8 +16,9 @@ class UserInfoViewBody extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.only(top: 20),
             child: AppBar(
+              automaticallyImplyLeading: false,
               title: CustomText(
-                title: 'User Name',
+                title: 'omar.tmam',
                 fontSize: getResponsiveFontSize(context, fontSize: 22),
               ),
               actions: const [

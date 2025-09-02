@@ -37,10 +37,15 @@ class FollowedBySection extends StatelessWidget {
         SizedBox(
           width: 4,
         ),
-        CustomText(
-          maxLines: 2,
-          title: followedByText,
-          fontSize: getResponsiveFontSize(context, fontSize: 14),
+        Expanded(
+          child: SizedBox(
+            child: CustomText(
+              maxLines: 2,
+              fontWeight: FontWeight.bold,
+              title: followedByText,
+              fontSize: getResponsiveFontSize(context, fontSize: 14),
+            ),
+          ),
         )
       ],
     );
