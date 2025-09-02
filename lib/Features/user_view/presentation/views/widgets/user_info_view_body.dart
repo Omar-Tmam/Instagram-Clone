@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/Core/utils/responsive_font_size.dart';
 import 'package:instagram_clone/Core/widgets/custom_text.dart';
 import 'package:instagram_clone/Features/user_view/presentation/views/widgets/category_info.dart';
+import 'package:instagram_clone/Features/user_view/presentation/views/widgets/following_message_add_section.dart';
+import 'package:instagram_clone/Features/user_view/presentation/views/widgets/tab_bar_tab_bar_view.dart';
 import 'package:instagram_clone/Features/user_view/presentation/views/widgets/user_info_row.dart';
 
 class UserInfoViewBody extends StatelessWidget {
@@ -43,7 +45,15 @@ class UserInfoViewBody extends StatelessWidget {
                 userImage:
                     'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8MHx8fDA%3D&w=1000&q=80',
               ),
-              CategoryInfo()
+              CategoryInfo(),
+              const FollowingMessageAddSection(),
+              SizedBox(
+                height: 10,
+              ),
+              DefaultTabController(
+                length: 3,
+                child: TabBarAndTabBarViewer(),
+              ),
             ],
           ),
         ),
