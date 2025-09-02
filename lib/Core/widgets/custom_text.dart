@@ -11,7 +11,7 @@ class CustomText extends StatelessWidget {
   });
   final String title;
   final double? fontSize;
-  final double? fontWeight;
+  final FontWeight? fontWeight;
   final int? maxLines;
   final Color? color;
 
@@ -21,6 +21,7 @@ class CustomText extends StatelessWidget {
       title,
       maxLines: maxLines,
       style: TextStyle(
+        fontWeight: fontWeight,
         fontSize: fontSize,
         color: color,
       ),
