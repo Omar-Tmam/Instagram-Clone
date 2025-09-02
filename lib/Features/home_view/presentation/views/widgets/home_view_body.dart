@@ -53,7 +53,7 @@ class HomeViewBody extends StatelessWidget {
                 if (state is UserInfoSuccess) {
                   ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('User Info Loaded Successfully')));
-                  print(state.userInfoModel);
+                  
                 }
                 if (state is UserInfoFailure) {
                   ScaffoldMessenger.of(context).showSnackBar(
