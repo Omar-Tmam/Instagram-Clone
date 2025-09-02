@@ -5,11 +5,15 @@ import 'package:instagram_clone/Core/widgets/custom_text.dart';
 class FollowedBySection extends StatelessWidget {
   const FollowedBySection({
     super.key,
-    required this.images,
+
     required this.followedByText,
   });
 
-  final List<String> images;
+  static final List<String> images = [
+    'https://www.facebook.com/images/fb_icon_325x325.png',
+    'https://www.facebook.com/images/fb_icon_325x325.png',
+    'https://www.facebook.com/images/fb_icon_325x325.png',
+  ];
   final String followedByText;
 
   @override
