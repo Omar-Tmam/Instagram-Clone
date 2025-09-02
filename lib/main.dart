@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:instagram_clone/Features/home_view/presentation/views/home_view.dart';
-
+import 'package:instagram_clone/Core/utils/app_router.dart';
 
 Future main() async {
   await dotenv.load(fileName: ".env");
@@ -13,9 +12,9 @@ class InstagramClone extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: HomeView(),
+      routerConfig: AppRouter.router,
       theme: ThemeData.dark(),
     );
   }
