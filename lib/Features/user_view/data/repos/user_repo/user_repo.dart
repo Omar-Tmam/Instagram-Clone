@@ -9,4 +9,5 @@ abstract class UserRepo {
   Future<Either<Failure, UserFollowersModel>> getUserFollowers(
       {required String userId});
   Future<Either<Failure, PostsModel>> getUserPosts({required String userId});
+  Future<Either<Failure, PostsModel>> getUserReels({required String userId});
 }

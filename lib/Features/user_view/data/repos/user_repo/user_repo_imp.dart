@@ -54,4 +54,19 @@ class UserRepoImp implements UserRepo {
       return Left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, PostsModel>> getUserReels(
+      {required String userId}) async {
+    try {
+      var data = await apiService.get(
+          endPoint: '/v1/reels?username_or_id_or_url=$userId');
+      return Right(PostsModel.fromJson(data));
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioError(e));
+      }
+      return Left(ServerFailure(e.toString()));
+    }
+  }
 }
