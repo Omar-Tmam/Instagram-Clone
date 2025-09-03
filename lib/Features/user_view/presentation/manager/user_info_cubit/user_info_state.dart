@@ -17,6 +17,7 @@ final class UserInfoFailure extends UserInfoState {
 }
 
 final class UserInfoSuccess extends UserInfoState {
+  final UserFollowersModel userFollowersModel;
   final UserInfoModel userInfoModel;
-  const UserInfoSuccess(this.userInfoModel);
+  const UserInfoSuccess(this.userInfoModel, this.userFollowersModel);
 }
