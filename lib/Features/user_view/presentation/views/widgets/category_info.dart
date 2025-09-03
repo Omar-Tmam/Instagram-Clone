@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/Core/utils/functions/num_formatter.dart';
 import 'package:instagram_clone/Core/utils/responsive_font_size.dart';
 import 'package:instagram_clone/Core/widgets/custom_text.dart';
 import 'package:instagram_clone/Features/user_view/data/models/user_followers_model/user_followers_model.dart';
@@ -41,7 +42,8 @@ class CategoryInfo extends StatelessWidget {
         const SizedBox(height: 10),
         FollowedBySection(
           userFollowersModel: userFollowersModel,
-          followedByText: 'Followed by user1, user2,user3 and 69k others',
+          followedByText:
+              'Followed by ${userFollowersModel.data?.items?[0].username}, ${userFollowersModel.data?.items?[2].username},${userFollowersModel.data?.items?[1].username}',
         ),
         const SizedBox(
           height: 10,

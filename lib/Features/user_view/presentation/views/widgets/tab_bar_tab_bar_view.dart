@@ -64,7 +64,7 @@ class TabBarAndTabBarViewer extends StatelessWidget {
                       );
                     }),
                 GridView.builder(
-                    itemCount: userDataArgs.reelsModel.data?.count ?? 0,
+                    itemCount: userDataArgs.tagModel.data?.count ?? 0,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         mainAxisSpacing: 1,
@@ -73,7 +73,7 @@ class TabBarAndTabBarViewer extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return Image.network(
                         userDataArgs
-                                .reelsModel.data?.items?[index].thumbnailUrl ??
+                                .tagModel.data?.items?[index].thumbnailUrl ??
                             '',
                         fit: BoxFit.cover,
                       );
