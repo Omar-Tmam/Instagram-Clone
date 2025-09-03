@@ -64,7 +64,9 @@ class UserInfoViewBody extends StatelessWidget {
               ),
               DefaultTabController(
                 length: 3,
-                child: TabBarAndTabBarViewer(),
+                child: TabBarAndTabBarViewer(
+                  userDataArgs: userDataArgs,
+                ),
               ),
             ],
           ),

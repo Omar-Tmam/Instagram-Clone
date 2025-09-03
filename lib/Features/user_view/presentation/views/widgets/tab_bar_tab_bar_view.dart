@@ -1,18 +1,16 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/Core/utils/functions/user_data_args.dart';
 import 'package:instagram_clone/Core/utils/responsive_font_size.dart';
 import 'package:instagram_clone/Core/widgets/custom_text.dart';
 
 class TabBarAndTabBarViewer extends StatelessWidget {
   const TabBarAndTabBarViewer({
     super.key,
+    required this.userDataArgs,
   });
 
-  static final List<String> posts = [
-    'https://www.facebook.com/images/fb_icon_325x325.png',
-    'https://www.facebook.com/images/fb_icon_325x325.png',
-    'https://www.facebook.com/images/fb_icon_325x325.png',
-  ];
+  final UserDataArgs userDataArgs;
 
   @override
   Widget build(BuildContext context) {
@@ -38,24 +36,31 @@ class TabBarAndTabBarViewer extends StatelessWidget {
             child: TabBarView(
               children: [
                 GridView.builder(
-                    itemCount: posts.length,
+                    itemCount: userDataArgs.postsModel.data?.count ?? 0,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         mainAxisSpacing: 1,
                         crossAxisSpacing: 1,
                         childAspectRatio: 1.1 / 2),
                     itemBuilder: (context, index) {
-                      return Image.network(posts[index]);
+                      return Image.network(
+                        userDataArgs
+                                .postsModel.data?.items?[index].thumbnailUrl ??
+                            '',
+                        fit: BoxFit.cover,
+                      );
                     }),
                 GridView.builder(
-                    itemCount: posts.length,
+                    itemCount: userDataArgs.postsModel.data?.count ?? 0,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         mainAxisSpacing: 1,
                         crossAxisSpacing: 1,
-                        childAspectRatio: 0.9 / 1.6),
+                        childAspectRatio: 1.1 / 2),
                     itemBuilder: (context, index) {
-                      return Image.network(posts[index]);
+                      return Image.network(userDataArgs
+                              .postsModel.data?.items?[index].thumbnailUrl ??
+                          '');
                     }),
                 Center(
                   child: CustomText(

@@ -7,7 +7,7 @@ class Caption extends Equatable {
   final int? createdAtUtc;
   final bool? didReportAsSpam;
   final bool? hasTranslation;
-  final List<String>? hashtags;
+  final List<dynamic>? hashtags;
   final String? id;
   final bool? isCovered;
   final bool? isRankedComment;
@@ -44,7 +44,7 @@ class Caption extends Equatable {
         createdAtUtc: json['created_at_utc'] as int?,
         didReportAsSpam: json['did_report_as_spam'] as bool?,
         hasTranslation: json['has_translation'] as bool?,
-        hashtags: json['hashtags'] as List<String>?,
+        hashtags: json['hashtags'] ,
         id: json['id'] as String?,
         isCovered: json['is_covered'] as bool?,
         isRankedComment: json['is_ranked_comment'] as bool?,
