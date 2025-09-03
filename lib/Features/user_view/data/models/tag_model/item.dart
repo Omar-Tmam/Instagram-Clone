@@ -37,7 +37,7 @@ class Item extends Equatable {
   final bool? captionIsEdited;
   final List<CarouselMedia>? carouselMedia;
   final int? carouselMediaCount;
-  final List<int>? carouselMediaIds;
+  final List<dynamic>? carouselMediaIds;
   final int? carouselMediaPendingPostCount;
   final List<dynamic>? clipsTabPinnedUserIds;
   final bool? coauthorProducerCanSeeOrganicInsights;
@@ -72,7 +72,7 @@ class Item extends Equatable {
   final dynamic igbioProduct;
   final ImageVersions? imageVersions;
   final String? inlineComposerDisplayCondition;
-  final int? inlineComposerImpTriggerTime;
+  final dynamic inlineComposerImpTriggerTime;
   final String? integrityReviewDecision;
   final List<dynamic>? invitedCoauthorProducers;
   final bool? isCommentsGifComposerEnabled;
@@ -128,7 +128,7 @@ class Item extends Equatable {
   final int? takenAtTs;
   final String? thumbnailUrl;
   final List<dynamic>? timelinePinnedUserIds;
-  final List<String>? topLikers;
+  final List<dynamic>? topLikers;
   final User? user;
   final List<dynamic>? videoStickerLocales;
   final bool? areRemixesCrosspostable;
@@ -317,7 +317,7 @@ class Item extends Equatable {
             ?.map((e) => CarouselMedia.fromJson(e as Map<String, dynamic>))
             .toList(),
         carouselMediaCount: json['carousel_media_count'] as int?,
-        carouselMediaIds: json['carousel_media_ids'] as List<int>?,
+        carouselMediaIds: json['carousel_media_ids'],
         carouselMediaPendingPostCount:
             json['carousel_media_pending_post_count'] as int?,
         clipsTabPinnedUserIds:
@@ -379,8 +379,7 @@ class Item extends Equatable {
                 json['image_versions'] as Map<String, dynamic>),
         inlineComposerDisplayCondition:
             json['inline_composer_display_condition'] as String?,
-        inlineComposerImpTriggerTime:
-            json['inline_composer_imp_trigger_time'] as int?,
+        inlineComposerImpTriggerTime: json['inline_composer_imp_trigger_time'],
         integrityReviewDecision: json['integrity_review_decision'] as String?,
         invitedCoauthorProducers:
             json['invited_coauthor_producers'] as List<dynamic>?,
@@ -472,7 +471,7 @@ class Item extends Equatable {
         thumbnailUrl: json['thumbnail_url'] as String?,
         timelinePinnedUserIds:
             json['timeline_pinned_user_ids'] as List<dynamic>?,
-        topLikers: json['top_likers'] as List<String>?,
+        topLikers: json['top_likers'],
         user: json['user'] == null
             ? null
             : User.fromJson(json['user'] as Map<String, dynamic>),

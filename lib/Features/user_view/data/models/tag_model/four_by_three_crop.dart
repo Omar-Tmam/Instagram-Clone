@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
 class FourByThreeCrop extends Equatable {
-  final double? cropBottom;
-  final int? cropLeft;
-  final int? cropRight;
-  final double? cropTop;
+  final dynamic cropBottom;
+  final dynamic cropLeft;
+  final dynamic cropRight;
+  final dynamic cropTop;
 
   const FourByThreeCrop({
     this.cropBottom,
@@ -16,8 +16,8 @@ class FourByThreeCrop extends Equatable {
   factory FourByThreeCrop.fromJson(Map<String, dynamic> json) {
     return FourByThreeCrop(
       cropBottom: (json['crop_bottom'] as num?)?.toDouble(),
-      cropLeft: json['crop_left'] as int?,
-      cropRight: json['crop_right'] as int?,
+      cropLeft: json['crop_left'] ,
+      cropRight: json['crop_right'],
       cropTop: (json['crop_top'] as num?)?.toDouble(),
     );
   }

@@ -11,7 +11,7 @@ class MusicAssetInfo extends Equatable {
   final int? durationInMs;
   final String? fastStartProgressiveDownloadUrl;
   final bool? hasLyrics;
-  final List<int>? highlightStartTimesInMs;
+  final List<dynamic>? highlightStartTimesInMs;
   final String? id;
   final String? igUsername;
   final bool? isEligibleForAudioEffects;
@@ -71,7 +71,7 @@ class MusicAssetInfo extends Equatable {
           json['fast_start_progressive_download_url'] as String?,
       hasLyrics: json['has_lyrics'] as bool?,
       highlightStartTimesInMs:
-          json['highlight_start_times_in_ms'] as List<int>?,
+          json['highlight_start_times_in_ms'],
       id: json['id'] as String?,
       igUsername: json['ig_username'] as String?,
       isEligibleForAudioEffects: json['is_eligible_for_audio_effects'] as bool?,

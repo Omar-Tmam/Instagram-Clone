@@ -1,14 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-import 'hours.dart';
-
 class Location extends Equatable {
   final String? address;
   final String? category;
   final String? city;
   final String? externalId;
   final String? externalIdSource;
-  final Hours? hours;
+
   final String? id;
   final double? lat;
   final double? lng;
@@ -23,7 +21,6 @@ class Location extends Equatable {
     this.city,
     this.externalId,
     this.externalIdSource,
-    this.hours,
     this.id,
     this.lat,
     this.lng,
@@ -39,9 +36,6 @@ class Location extends Equatable {
         city: json['city'] as String?,
         externalId: json['external_id'] as String?,
         externalIdSource: json['external_id_source'] as String?,
-        hours: json['hours'] == null
-            ? null
-            : Hours.fromJson(json['hours'] as Map<String, dynamic>),
         id: json['id'] as String?,
         lat: (json['lat'] as num?)?.toDouble(),
         lng: (json['lng'] as num?)?.toDouble(),
@@ -57,7 +51,6 @@ class Location extends Equatable {
         'city': city,
         'external_id': externalId,
         'external_id_source': externalIdSource,
-        'hours': hours?.toJson(),
         'id': id,
         'lat': lat,
         'lng': lng,
@@ -75,7 +68,6 @@ class Location extends Equatable {
       city,
       externalId,
       externalIdSource,
-      hours,
       id,
       lat,
       lng,

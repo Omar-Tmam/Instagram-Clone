@@ -1,8 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/Core/utils/functions/user_data_args.dart';
-import 'package:instagram_clone/Core/utils/responsive_font_size.dart';
-import 'package:instagram_clone/Core/widgets/custom_text.dart';
 
 class TabBarAndTabBarViewer extends StatelessWidget {
   const TabBarAndTabBarViewer({
@@ -65,12 +63,21 @@ class TabBarAndTabBarViewer extends StatelessWidget {
                         fit: BoxFit.cover,
                       );
                     }),
-                Center(
-                  child: CustomText(
-                    title: 'No Tagged Posts',
-                    fontSize: getResponsiveFontSize(context, fontSize: 16),
-                  ),
-                ),
+                GridView.builder(
+                    itemCount: userDataArgs.reelsModel.data?.count ?? 0,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 1,
+                        crossAxisSpacing: 1,
+                        childAspectRatio: 1.1 / 2),
+                    itemBuilder: (context, index) {
+                      return Image.network(
+                        userDataArgs
+                                .reelsModel.data?.items?[index].thumbnailUrl ??
+                            '',
+                        fit: BoxFit.cover,
+                      );
+                    }),
               ],
             ),
           ),

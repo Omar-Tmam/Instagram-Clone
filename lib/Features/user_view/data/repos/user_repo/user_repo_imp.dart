@@ -72,7 +72,7 @@ class UserRepoImp implements UserRepo {
     }
   }
 
-@override
+  @override
   Future<Either<Failure, TagModel>> getUserTags(
       {required String userId}) async {
     try {
@@ -86,5 +86,4 @@ class UserRepoImp implements UserRepo {
       return Left(ServerFailure(e.toString()));
     }
   }
-
 }
