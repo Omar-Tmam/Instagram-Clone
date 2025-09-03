@@ -9,27 +9,23 @@ class FollowingMessageAddSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      spacing: 5,
       children: [
         Expanded(
-          child: CustomButton(
+          flex: 2,
+          child: UserPageButton(
             title: 'Following',
-            icon: Icons.keyboard_arrow_down_sharp,
+            icon: Icon(
+              Icons.keyboard_arrow_down_sharp,
+              color: Colors.white,
+            ),
           ),
-        ),
-        SizedBox(
-          width: 10,
         ),
         Expanded(
-          child: CustomButton(
+          flex: 2,
+          child: UserPageButton(
             title: 'Message',
           ),
-        ),
-        SizedBox(
-          width: 10,
-        ),
-        CustomButton(
-          icon: Icons.person_add_alt,
         ),
       ],
     );

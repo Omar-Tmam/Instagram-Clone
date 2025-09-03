@@ -1,47 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/Core/utils/responsive_font_size.dart';
-import 'package:instagram_clone/Core/widgets/custom_text.dart';
 
-class CustomButton extends StatelessWidget {
-  const CustomButton({
-    super.key,
-    this.icon,
-    this.title,
-    this.onPressed,
-  });
-
-  final IconData? icon;
+class UserPageButton extends StatelessWidget {
   final String? title;
-  final VoidCallback? onPressed;
+  final Icon? icon;
+
+  const UserPageButton({super.key, this.title, this.icon});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPressed ?? () {},
       style: ElevatedButton.styleFrom(
-        side: const BorderSide(color: Colors.white),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(8),
         ),
-        // padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        backgroundColor: Colors.transparent,
+        side: BorderSide(color: Colors.white, width: 1),
       ),
+      onPressed: () {},
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          if (title != null)
-            CustomText(
-              title: title!,
-              fontWeight: FontWeight.bold,
-              fontSize: getResponsiveFontSize(context, fontSize: 15),
-            ),
-          if (icon != null) ...[
-            if (title != null)
-              Expanded(child: SizedBox()), // مسافة بين النص والأيقونة
-            Icon(
-              icon,
+          Text(
+            title ?? "",
+            style: TextStyle(
+              fontSize: getResponsiveFontSize(context, fontSize: 14),
+              fontWeight: FontWeight.w600,
               color: Colors.white,
             ),
-          ],
+          ),
+          if (icon != null) icon!,
         ],
       ),
     );
