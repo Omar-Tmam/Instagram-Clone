@@ -22,14 +22,15 @@ class UserInfoCubit extends Cubit<UserInfoState> {
       userRepo.getUserInfo(userId: userId),
       userRepo.getUserFollowers(userId: userId),
       userRepo.getUserPosts(userId: userId),
-      userRepo.getUserReels(userId: userId), 
+      userRepo.getUserReels(userId: userId),
     ]);
 
     // نعمل كاست للنتايج
     final userInfoResult = results[0] as Either<Failure, UserInfoModel>;
-    final userFollowersResult = results[1] as Either<Failure, UserFollowersModel>;
+    final userFollowersResult =
+        results[1] as Either<Failure, UserFollowersModel>;
     final userPostsResult = results[2] as Either<Failure, PostsModel>;
-    final userReelsResult = results[3] as Either<Failure, ReelsModel>; 
+    final userReelsResult = results[3] as Either<Failure, ReelsModel>;
 
     // نتعامل مع النتايج بالترتيب
     userInfoResult.fold(
@@ -48,7 +49,7 @@ class UserInfoCubit extends Cubit<UserInfoState> {
                       userInfoModel,
                       userFollowersModel,
                       postsModel,
-                      reelsModel, 
+                      reelsModel,
                     ));
                   },
                 );

@@ -61,7 +61,7 @@ class HomeViewBody extends StatelessWidget {
                       SnackBar(content: Text('User Info Loaded Successfully')));
                   GoRouter.of(context).push(AppRouter.kUserInfoView,
                       extra: UserDataArgs(
-                        reelsModel: state.reelsModel,
+                          reelsModel: state.reelsModel,
                           postsModel: state.postsModel,
                           userInfoModel: state.userInfoModel,
                           userFollowersModel: state.userFollowersModel));

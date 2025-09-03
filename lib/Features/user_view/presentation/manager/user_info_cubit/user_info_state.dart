@@ -21,6 +21,6 @@ final class UserInfoSuccess extends UserInfoState {
   final UserFollowersModel userFollowersModel;
   final UserInfoModel userInfoModel;
   final PostsModel postsModel;
-  const UserInfoSuccess(
-      this.userInfoModel, this.userFollowersModel, this.postsModel, this.reelsModel);
+  const UserInfoSuccess(this.userInfoModel, this.userFollowersModel,
+      this.postsModel, this.reelsModel);
 }
