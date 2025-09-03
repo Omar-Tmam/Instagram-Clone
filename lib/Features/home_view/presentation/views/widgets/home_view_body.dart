@@ -6,8 +6,6 @@ import 'package:instagram_clone/Core/utils/app_router.dart';
 import 'package:instagram_clone/Core/utils/functions/user_data_args.dart';
 import 'package:instagram_clone/Core/utils/responsive_font_size.dart';
 import 'package:instagram_clone/Core/widgets/custom_text.dart';
-import 'package:instagram_clone/Features/user_view/data/models/user_followers_model/user_followers_model.dart';
-import 'package:instagram_clone/Features/user_view/data/models/user_info_model/user_info_model.dart';
 import 'package:instagram_clone/Features/user_view/presentation/manager/user_info_cubit/user_info_cubit.dart';
 import 'package:ionicons/ionicons.dart';
 
