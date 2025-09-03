@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/Core/utils/responsive_font_size.dart';
 import 'package:instagram_clone/Core/widgets/custom_text.dart';
+import 'package:instagram_clone/Features/user_view/data/models/user_followers_model/user_followers_model.dart';
 import 'package:instagram_clone/Features/user_view/data/models/user_info_model/user_info_model.dart';
 import 'package:instagram_clone/Features/user_view/presentation/views/widgets/followed_by_section.dart';
 
 class CategoryInfo extends StatelessWidget {
-  const CategoryInfo({super.key, required this.userInfoModel});
+  const CategoryInfo({super.key, required this.userInfoModel, required this.userFollowersModel});
   final UserInfoModel userInfoModel;
+  final UserFollowersModel userFollowersModel;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +37,7 @@ class CategoryInfo extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         FollowedBySection(
+          userFollowersModel: userFollowersModel,
           followedByText: 'Followed by user1, user2,user3 and 69k others',
         ),
         const SizedBox(

@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
+import 'package:instagram_clone/Core/utils/functions/user_data_args.dart';
 import 'package:instagram_clone/Features/home_view/presentation/views/home_view.dart';
-import 'package:instagram_clone/Features/user_view/data/models/user_info_model/user_info_model.dart';
+import 'package:instagram_clone/Features/home_view/presentation/views/widgets/home_view_body.dart';
 import 'package:instagram_clone/Features/user_view/presentation/views/user_info_view.dart';
 
 abstract class AppRouter {
@@ -16,7 +17,7 @@ abstract class AppRouter {
       GoRoute(
           path: kUserInfoView,
           builder: (context, state) {
-            return UserInfoView(userInfoModel: state.extra as UserInfoModel);
+            return UserInfoView(userDataArgs: state.extra as UserDataArgs);
           }),
     ],
   );
