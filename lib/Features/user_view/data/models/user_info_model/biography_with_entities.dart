@@ -1,25 +1,23 @@
 import 'package:equatable/equatable.dart';
 
 class BiographyWithEntities extends Equatable {
-	final List<dynamic>? entities;
-	final String? rawText;
+  final List<dynamic>? entities;
+  final String? rawText;
 
-	const BiographyWithEntities({this.entities, this.rawText});
+  const BiographyWithEntities({this.entities, this.rawText});
 
-	factory BiographyWithEntities.fromJson(Map<String, dynamic> json) {
-		return BiographyWithEntities(
-			entities: json['entities'] as List<dynamic>?,
-			rawText: json['raw_text'] as String?,
-		);
-	}
+  factory BiographyWithEntities.fromJson(Map<String, dynamic> json) {
+    return BiographyWithEntities(
+      entities: json['entities'] as List<dynamic>?,
+      rawText: json['raw_text'] as String?,
+    );
+  }
 
+  Map<String, dynamic> toJson() => {
+        'entities': entities,
+        'raw_text': rawText,
+      };
 
-
-	Map<String, dynamic> toJson() => {
-				'entities': entities,
-				'raw_text': rawText,
-			};
-
-	@override
-	List<Object?> get props => [entities, rawText];
+  @override
+  List<Object?> get props => [entities, rawText];
 }

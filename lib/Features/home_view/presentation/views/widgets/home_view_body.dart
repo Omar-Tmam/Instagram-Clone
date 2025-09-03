@@ -10,8 +10,9 @@ import 'package:instagram_clone/Features/user_view/presentation/manager/user_inf
 import 'package:ionicons/ionicons.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key,});
-
+  const HomeViewBody({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/Core/utils/size_config.dart';
 

@@ -1,25 +1,23 @@
 import 'package:equatable/equatable.dart';
 
 class ProfileOverlayInfo extends Equatable {
-	final dynamic bloksPayload;
-	final String? overlayFormat;
+  final dynamic bloksPayload;
+  final String? overlayFormat;
 
-	const ProfileOverlayInfo({this.bloksPayload, this.overlayFormat});
+  const ProfileOverlayInfo({this.bloksPayload, this.overlayFormat});
 
-	factory ProfileOverlayInfo.fromJson(Map<String, dynamic> json) {
-		return ProfileOverlayInfo(
-			bloksPayload: json['bloks_payload'] as dynamic,
-			overlayFormat: json['overlay_format'] as String?,
-		);
-	}
+  factory ProfileOverlayInfo.fromJson(Map<String, dynamic> json) {
+    return ProfileOverlayInfo(
+      bloksPayload: json['bloks_payload'] as dynamic,
+      overlayFormat: json['overlay_format'] as String?,
+    );
+  }
 
+  Map<String, dynamic> toJson() => {
+        'bloks_payload': bloksPayload,
+        'overlay_format': overlayFormat,
+      };
 
-
-	Map<String, dynamic> toJson() => {
-				'bloks_payload': bloksPayload,
-				'overlay_format': overlayFormat,
-			};
-
-	@override
-	List<Object?> get props => [bloksPayload, overlayFormat];
+  @override
+  List<Object?> get props => [bloksPayload, overlayFormat];
 }
