@@ -41,7 +41,8 @@ class UserRepoImp implements UserRepo {
   }
 
   @override
-  Future<Either<Failure, PostsModel>> getUserPosts({required String userId})async {
+  Future<Either<Failure, PostsModel>> getUserPosts(
+      {required String userId}) async {
     try {
       var data = await apiService.get(
           endPoint: '/v1/posts?username_or_id_or_url=$userId');

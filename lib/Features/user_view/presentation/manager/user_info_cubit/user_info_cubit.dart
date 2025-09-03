@@ -20,7 +20,7 @@ class UserInfoCubit extends Cubit<UserInfoState> {
     final results = await Future.wait([
       userRepo.getUserInfo(userId: userId),
       userRepo.getUserFollowers(userId: userId),
-      userRepo.getUserPosts(userId: userId), 
+      userRepo.getUserPosts(userId: userId),
     ]);
 
     // نعمل كاست للنتايج
@@ -42,7 +42,7 @@ class UserInfoCubit extends Cubit<UserInfoState> {
                 emit(UserInfoSuccess(
                   userInfoModel,
                   userFollowersModel,
-                  postsModel, 
+                  postsModel,
                 ));
               },
             );
