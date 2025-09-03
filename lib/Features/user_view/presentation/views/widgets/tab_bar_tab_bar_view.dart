@@ -51,16 +51,19 @@ class TabBarAndTabBarViewer extends StatelessWidget {
                       );
                     }),
                 GridView.builder(
-                    itemCount: userDataArgs.postsModel.data?.count ?? 0,
+                    itemCount: userDataArgs.reelsModel.data?.count ?? 0,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         mainAxisSpacing: 1,
                         crossAxisSpacing: 1,
                         childAspectRatio: 1.1 / 2),
                     itemBuilder: (context, index) {
-                      return Image.network(userDataArgs
-                              .postsModel.data?.items?[index].thumbnailUrl ??
-                          '');
+                      return Image.network(
+                        userDataArgs
+                                .reelsModel.data?.items?[index].thumbnailUrl ??
+                            '',
+                        fit: BoxFit.cover,
+                      );
                     }),
                 Center(
                   child: CustomText(

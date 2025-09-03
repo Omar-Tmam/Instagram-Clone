@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:instagram_clone/Core/errors/failures.dart';
 import 'package:instagram_clone/Core/utils/api_service.dart';
 import 'package:instagram_clone/Features/user_view/data/models/posts_model/posts_model.dart';
+import 'package:instagram_clone/Features/user_view/data/models/reels_model/reels_model.dart';
 import 'package:instagram_clone/Features/user_view/data/models/user_followers_model/user_followers_model.dart';
 import 'package:instagram_clone/Features/user_view/data/models/user_info_model/user_info_model.dart';
 import 'package:instagram_clone/Features/user_view/data/repos/user_repo/user_repo.dart';
@@ -56,12 +57,12 @@ class UserRepoImp implements UserRepo {
   }
 
   @override
-  Future<Either<Failure, PostsModel>> getUserReels(
+  Future<Either<Failure, ReelsModel>> getUserReels(
       {required String userId}) async {
     try {
       var data = await apiService.get(
           endPoint: '/v1/reels?username_or_id_or_url=$userId');
-      return Right(PostsModel.fromJson(data));
+      return Right(ReelsModel.fromJson(data));
     } catch (e) {
       if (e is DioException) {
         return Left(ServerFailure.fromDioError(e));
