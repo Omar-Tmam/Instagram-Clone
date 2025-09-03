@@ -6,7 +6,10 @@ import 'package:instagram_clone/Features/user_view/data/models/user_info_model/u
 import 'package:instagram_clone/Features/user_view/presentation/views/widgets/followed_by_section.dart';
 
 class CategoryInfo extends StatelessWidget {
-  const CategoryInfo({super.key, required this.userInfoModel, required this.userFollowersModel});
+  const CategoryInfo(
+      {super.key,
+      required this.userInfoModel,
+      required this.userFollowersModel});
   final UserInfoModel userInfoModel;
   final UserFollowersModel userFollowersModel;
 

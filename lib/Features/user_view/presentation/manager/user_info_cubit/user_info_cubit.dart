@@ -11,34 +11,34 @@ part 'user_info_state.dart';
 class UserInfoCubit extends Cubit<UserInfoState> {
   UserInfoCubit(this.userRepo) : super(UserInfoInitial());
   final UserRepo userRepo;
- Future<void> getUserInfo({required String userId}) async {
-  emit(UserInfoLoading());
+  Future<void> getUserInfo({required String userId}) async {
+    emit(UserInfoLoading());
 
-  // نشغل الدالتين مع بعض
-  final results = await Future.wait([
-    userRepo.getUserInfo(userId: userId),
-    userRepo.getUserFollowers(userId: userId),
-  ]);
+    // نشغل الدالتين مع بعض
+    final results = await Future.wait([
+      userRepo.getUserInfo(userId: userId),
+      userRepo.getUserFollowers(userId: userId),
+    ]);
 
-  // نعمل كاست للنتايج
-  final userInfoResult = results[0] as Either<Failure, UserInfoModel>;
-  final userFollowersResult = results[1] as Either<Failure, UserFollowersModel>;
+    // نعمل كاست للنتايج
+    final userInfoResult = results[0] as Either<Failure, UserInfoModel>;
+    final userFollowersResult =
+        results[1] as Either<Failure, UserFollowersModel>;
 
-  // نتعامل مع النتايج
-  userInfoResult.fold(
-    (failure) => emit(UserInfoFailure(failure.errMessage)),
-    (userInfoModel) {
-      userFollowersResult.fold(
-        (failure) => emit(UserInfoFailure(failure.errMessage)),
-        (userFollowersModel) {
-          emit(UserInfoSuccess(
-            userInfoModel,
-            userFollowersModel,
-          ));
-        },
-      );
-    },
-  );
-}
-
+    // نتعامل مع النتايج
+    userInfoResult.fold(
+      (failure) => emit(UserInfoFailure(failure.errMessage)),
+      (userInfoModel) {
+        userFollowersResult.fold(
+          (failure) => emit(UserInfoFailure(failure.errMessage)),
+          (userFollowersModel) {
+            emit(UserInfoSuccess(
+              userInfoModel,
+              userFollowersModel,
+            ));
+          },
+        );
+      },
+    );
+  }
 }

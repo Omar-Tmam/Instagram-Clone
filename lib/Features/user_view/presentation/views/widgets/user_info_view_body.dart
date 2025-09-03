@@ -11,7 +11,8 @@ import '../../../../../Core/utils/functions/num_formatter.dart';
 
 class UserInfoViewBody extends StatelessWidget {
   const UserInfoViewBody({
-    super.key, required this.userDataArgs,
+    super.key,
+    required this.userDataArgs,
   });
   final UserDataArgs userDataArgs;
 
@@ -45,11 +46,12 @@ class UserInfoViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               UserInfoRow(
-                followersNumber:
-                    formatNumber(userDataArgs.userInfoModel.data!.followerCount!),
-                followingNumber:
-                    formatNumber(userDataArgs.userInfoModel.data!.followingCount!),
-                postsNumber: formatNumber(userDataArgs.userInfoModel.data!.mediaCount!),
+                followersNumber: formatNumber(
+                    userDataArgs.userInfoModel.data!.followerCount!),
+                followingNumber: formatNumber(
+                    userDataArgs.userInfoModel.data!.followingCount!),
+                postsNumber:
+                    formatNumber(userDataArgs.userInfoModel.data!.mediaCount!),
                 userImage: userDataArgs.userInfoModel.data!.profilePicUrlHd!,
               ),
               CategoryInfo(

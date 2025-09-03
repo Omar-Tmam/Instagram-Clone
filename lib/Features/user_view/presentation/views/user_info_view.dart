@@ -5,7 +5,8 @@ import 'package:instagram_clone/Features/user_view/presentation/views/widgets/us
 
 class UserInfoView extends StatelessWidget {
   const UserInfoView({
-    super.key, required this.userDataArgs,
+    super.key,
+    required this.userDataArgs,
   });
   final UserDataArgs userDataArgs;
 
@@ -13,7 +14,9 @@ class UserInfoView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: AdaptiveLayout(
-        mobileLayout: (context) => UserInfoViewBody(userDataArgs: userDataArgs,),
+        mobileLayout: (context) => UserInfoViewBody(
+          userDataArgs: userDataArgs,
+        ),
         tabletLayout: (context) => SizedBox(),
         desktopLayout: (context) => SizedBox(),
       ),

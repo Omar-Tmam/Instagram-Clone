@@ -27,10 +27,10 @@ class UserRepoImp implements UserRepo {
   @override
   Future<Either<Failure, UserFollowersModel>> getUserFollowers(
       {required String userId}) async {
-        try{
-    var data = await apiService.get(
-        endPoint: '/v1/followers?username_or_id_or_url=$userId');
-        return Right(UserFollowersModel.fromJson(data));
+    try {
+      var data = await apiService.get(
+          endPoint: '/v1/followers?username_or_id_or_url=$userId');
+      return Right(UserFollowersModel.fromJson(data));
     } catch (e) {
       if (e is DioException) {
         return Left(ServerFailure.fromDioError(e));

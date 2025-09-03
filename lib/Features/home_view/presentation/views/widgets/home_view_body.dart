@@ -103,5 +103,3 @@ class HomeViewBody extends StatelessWidget {
     return OutlineInputBorder(borderSide: BorderSide(color: Colors.grey));
   }
 }
-
-

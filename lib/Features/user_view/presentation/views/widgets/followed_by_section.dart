@@ -6,7 +6,8 @@ import 'package:instagram_clone/Features/user_view/data/models/user_followers_mo
 class FollowedBySection extends StatelessWidget {
   const FollowedBySection({
     super.key,
-    required this.followedByText, required this.userFollowersModel,
+    required this.followedByText,
+    required this.userFollowersModel,
   });
 
   // static final List<String> images = [
@@ -19,7 +20,6 @@ class FollowedBySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Row(
       children: [
         SizedBox(
@@ -32,9 +32,9 @@ class FollowedBySection extends StatelessWidget {
                   left: i * 25.0,
                   child: CircleAvatar(
                     radius: 16,
-                    backgroundImage: NetworkImage(
-                      userFollowersModel.data?.items?[i].profilePicUrl??'https://www.facebook.com/images/fb_icon_325x325.png'
-                    ),
+                    backgroundImage: NetworkImage(userFollowersModel
+                            .data?.items?[i].profilePicUrl ??
+                        'https://www.facebook.com/images/fb_icon_325x325.png'),
                   ),
                 )
             ],
