@@ -17,7 +17,7 @@ class UserNumColumn extends StatelessWidget {
     return Column(
       children: [
         CustomText(
-          title: numbers,
+          title: numbers.toString(),
           fontSize: getResponsiveFontSize(context, fontSize: 20),
           fontWeight: FontWeight.bold,
         ),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -9,8 +10,8 @@ import 'package:instagram_clone/Features/user_view/presentation/manager/user_inf
 import 'package:ionicons/ionicons.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key, required this.userInfoModel});
-  final UserInfoModel userInfoModel;
+  const HomeViewBody({super.key,});
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +58,8 @@ class HomeViewBody extends StatelessWidget {
                 if (state is UserInfoSuccess) {
                   ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text('User Info Loaded Successfully')));
+                  GoRouter.of(context).push(AppRouter.kUserInfoView,
+                      extra: state.userInfoModel);
                 }
                 if (state is UserInfoFailure) {
                   ScaffoldMessenger.of(context).showSnackBar(
@@ -72,11 +75,11 @@ class HomeViewBody extends StatelessWidget {
                     onPressed: () async {
                       await BlocProvider.of<UserInfoCubit>(context)
                           .getUserInfo(userId: controller.text);
-                      GoRouter.of(context)
-                          .push(AppRouter.kUserInfoView, extra: userInfoModel);
                     },
                     child: state is UserInfoLoading
-                        ? CircularProgressIndicator()
+                        ? CupertinoActivityIndicator(
+                            color: Colors.black,
+                          )
                         : CustomText(
                             color: Colors.black,
                             title: 'Submit',

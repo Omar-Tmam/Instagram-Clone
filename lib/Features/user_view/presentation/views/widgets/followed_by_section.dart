@@ -5,7 +5,6 @@ import 'package:instagram_clone/Core/widgets/custom_text.dart';
 class FollowedBySection extends StatelessWidget {
   const FollowedBySection({
     super.key,
-
     required this.followedByText,
   });
 

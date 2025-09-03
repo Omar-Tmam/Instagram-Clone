@@ -12,8 +12,8 @@ class UserRepoImp implements UserRepo {
   Future<Either<Failure, UserInfoModel>> getUserInfo(
       {required String userId}) async {
     try {
-      var data =
-          await apiService.get(endPoint: 'username_or_id_or_url=$userId');
+      var data = await apiService.get(
+          endPoint: '/v1/info?username_or_id_or_url=$userId');
       return Right(UserInfoModel.fromJson(data));
     } catch (e) {
       if (e is DioException) {

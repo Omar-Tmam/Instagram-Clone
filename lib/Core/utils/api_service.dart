@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ApiService {
-  final _baseUrl = "https://instagram-social-api.p.rapidapi.com/v1/info?";
+  final _baseUrl = "https://instagram-social-api.p.rapidapi.com";
   static final Dio _dio = Dio();
 
   Future<Map<String, dynamic>> get({required String endPoint}) async {
