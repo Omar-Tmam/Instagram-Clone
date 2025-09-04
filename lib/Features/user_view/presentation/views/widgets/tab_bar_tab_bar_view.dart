@@ -1,6 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:instagram_clone/Core/utils/app_router.dart';
 import 'package:instagram_clone/Core/utils/functions/user_data_args.dart';
+import 'package:instagram_clone/Features/user_view/presentation/manager/user_info_cubit/user_info_cubit.dart';
 
 class TabBarAndTabBarViewer extends StatelessWidget {
   const TabBarAndTabBarViewer({
@@ -54,13 +58,26 @@ class TabBarAndTabBarViewer extends StatelessWidget {
                         crossAxisCount: 3,
                         mainAxisSpacing: 1,
                         crossAxisSpacing: 1,
-                        childAspectRatio: 1.1 / 2),
+                        childAspectRatio: 0.9 / 1.6),
                     itemBuilder: (context, index) {
-                      return Image.network(
-                        userDataArgs
-                                .reelsModel.data?.items?[index].thumbnailUrl ??
-                            '',
-                        fit: BoxFit.cover,
+                      return GestureDetector(
+                        onTap: () {
+                          GoRouter.of(context).push(AppRouter.kUserInfoView,
+                              extra: UserDataArgs(
+                                tagModel: userDataArgs.tagModel,
+                                reelsModel: userDataArgs.reelsModel,
+                                postsModel: userDataArgs.postsModel,
+                                userInfoModel: userDataArgs.userInfoModel,
+                                userFollowersModel:
+                                    userDataArgs.userFollowersModel,
+                              ));
+                        },
+                        child: Image.network(
+                          userDataArgs.reelsModel.data?.items?[index]
+                                  .thumbnailUrl ??
+                              '',
+                          fit: BoxFit.cover,
+                        ),
                       );
                     }),
                 GridView.builder(

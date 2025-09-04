@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/Core/utils/functions/num_formatter.dart';
 import 'package:instagram_clone/Core/utils/responsive_font_size.dart';
 import 'package:instagram_clone/Core/widgets/custom_text.dart';
 import 'package:instagram_clone/Features/user_view/data/models/user_followers_model/user_followers_model.dart';
