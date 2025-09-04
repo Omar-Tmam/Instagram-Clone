@@ -32,7 +32,7 @@ class CategoryInfo extends StatelessWidget {
             ),
             const SizedBox(width: 9),
             CustomText(
-              title: 'www.Facebook.com',
+              title: userInfoModel.data?.bioLinks?.first.url ?? 'No Link',
               fontWeight: FontWeight.w600,
               fontSize: getResponsiveFontSize(context, fontSize: 13),
             ),

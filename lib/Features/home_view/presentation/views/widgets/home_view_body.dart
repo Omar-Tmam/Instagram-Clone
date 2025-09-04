@@ -57,8 +57,6 @@ class HomeViewBody extends StatelessWidget {
             child: BlocConsumer<UserInfoCubit, UserInfoState>(
               listener: (context, state) {
                 if (state is UserInfoSuccess) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('User Info Loaded Successfully')));
                   GoRouter.of(context).push(AppRouter.kUserInfoView,
                       extra: UserDataArgs(
                           tagModel: state.tagModel,

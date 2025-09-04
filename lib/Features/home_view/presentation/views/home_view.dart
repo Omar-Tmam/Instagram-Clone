@@ -14,14 +14,10 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AdaptiveLayout(
-        mobileLayout: (context) => BlocProvider(
+      body: BlocProvider(
           create: (context) => UserInfoCubit(UserRepoImp(ApiService())),
           child: HomeViewBody(),
         ),
-        tabletLayout: (context) => SizedBox(),
-        desktopLayout: (context) => SizedBox(),
-      ),
     );
   }
 }

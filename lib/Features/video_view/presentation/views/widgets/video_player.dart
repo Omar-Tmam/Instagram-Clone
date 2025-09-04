@@ -76,8 +76,56 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
 
   void toggleVideo() {
     if (_hasError) return;
-
     player.playOrPause();
+  }
+
+  // دالة لتحديد أبعاد الفيديو المناسبة للجهاز
+  Widget _buildVideoContainer() {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // الحصول على أبعاد الشاشة
+        final screenWidth = constraints.maxWidth;
+        final screenHeight = constraints.maxHeight;
+
+        // نسبة عرض إلى ارتفاع للفيديو (9:16 للريلز العمودية)
+        const videoAspectRatio = 9.0 / 16.0;
+
+        // حساب الأبعاد المثلى
+        double videoWidth, videoHeight;
+
+        if (screenWidth / screenHeight > videoAspectRatio) {
+          // الشاشة أعرض من نسبة الفيديو (مثل التابلت في الوضع الأفقي)
+          videoHeight = screenHeight;
+          videoWidth = videoHeight * videoAspectRatio;
+        } else {
+          // الشاشة أطول من نسبة الفيديو أو مناسبة
+          videoWidth = screenWidth;
+          videoHeight = videoWidth / videoAspectRatio;
+
+          // التأكد من أن الارتفاع لا يتجاوز ارتفاع الشاشة
+          if (videoHeight > screenHeight) {
+            videoHeight = screenHeight;
+            videoWidth = videoHeight * videoAspectRatio;
+          }
+        }
+
+        return Center(
+          child: SizedBox(
+            width: videoWidth,
+            height: videoHeight,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0), // زوايا دائرية اختيارية
+              child: Video(
+                controller: controller,
+                controls: NoVideoControls,
+                fit: BoxFit.cover,
+                fill: Colors.black,
+              ),
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -89,18 +137,18 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
+              const Icon(
                 Icons.error_outline,
                 color: Colors.white,
                 size: 48,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
                 _errorMessage,
-                style: TextStyle(color: Colors.white, fontSize: 14),
+                style: const TextStyle(color: Colors.white, fontSize: 14),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
@@ -110,7 +158,7 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
                   player.dispose();
                   _initializePlayer();
                 },
-                child: Text('إعادة المحاولة'),
+                child: const Text('إعادة المحاولة'),
               ),
             ],
           ),
@@ -122,14 +170,11 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
       onTap: toggleVideo,
       child: Container(
         color: Colors.black,
+        width: double.infinity,
+        height: double.infinity,
         child: _isInitialized
-            ? Video(
-                controller: controller,
-                controls: NoVideoControls,
-                fit: BoxFit.cover,
-                fill: Colors.black,
-              )
-            : Center(
+            ? _buildVideoContainer()
+            : const Center(
                 child: CupertinoActivityIndicator(
                   color: Colors.white,
                 ),

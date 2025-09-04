@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData.light().copyWith(
+    drawerTheme: DrawerThemeData(
+      backgroundColor: Colors.white,
+    ),
     appBarTheme: AppBarTheme(
         color: Colors.transparent,
         elevation: 0,
@@ -28,6 +31,9 @@ class AppTheme {
   );
 
   static ThemeData darkTheme = ThemeData.dark().copyWith(
+    drawerTheme: DrawerThemeData(
+      backgroundColor: Colors.black,
+    ),
     appBarTheme: AppBarTheme(
         color: Colors.transparent,
         elevation: 0,

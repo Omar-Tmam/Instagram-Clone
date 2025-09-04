@@ -11,12 +11,9 @@ class UserVideoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AdaptiveLayout(
-          mobileLayout: (context) => UserVideoViewBody(
-             item: item, 
-              ),
-          tabletLayout: (context) => SizedBox(),
-          desktopLayout: (context) => SizedBox()),
+      body: UserVideoViewBody(
+        item: item,
+      ),
     );
   }
 }
