@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/Core/utils/functions/user_data_args.dart';
-import 'package:instagram_clone/Core/widgets/adaptive_layout_widget.dart';
 import 'package:instagram_clone/Features/user_view/data/models/reels_model/item.dart';
 import 'package:instagram_clone/Features/video_view/presentation/views/widgets/user_video_view_body.dart';
 

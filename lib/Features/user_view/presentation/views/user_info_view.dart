@@ -1,6 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
+
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:instagram_clone/Core/utils/functions/user_data_args.dart';
 import 'package:instagram_clone/Core/widgets/adaptive_layout_widget.dart';
 import 'package:instagram_clone/Features/user_view/presentation/views/widgets/user_info_tablet.dart';
