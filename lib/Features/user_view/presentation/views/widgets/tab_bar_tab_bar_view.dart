@@ -62,15 +62,9 @@ class TabBarAndTabBarViewer extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return GestureDetector(
                         onTap: () {
-                          GoRouter.of(context).push(AppRouter.kUserInfoView,
-                              extra: UserDataArgs(
-                                tagModel: userDataArgs.tagModel,
-                                reelsModel: userDataArgs.reelsModel,
-                                postsModel: userDataArgs.postsModel,
-                                userInfoModel: userDataArgs.userInfoModel,
-                                userFollowersModel:
-                                    userDataArgs.userFollowersModel,
-                              ));
+                          GoRouter.of(context).push(AppRouter.kVideoInfoView,
+                              extra:
+                                  userDataArgs.reelsModel.data?.items?[index]);
                         },
                         child: Image.network(
                           userDataArgs.reelsModel.data?.items?[index]
