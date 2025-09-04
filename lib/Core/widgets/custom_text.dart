@@ -6,8 +6,7 @@ class CustomText extends StatelessWidget {
     required this.title,
     this.fontSize,
     this.fontWeight,
-    this.maxLines,
-    this.color = Colors.white,
+    this.maxLines, this.color,
   });
   final String title;
   final double? fontSize;
@@ -23,7 +22,7 @@ class CustomText extends StatelessWidget {
       style: TextStyle(
         fontWeight: fontWeight,
         fontSize: fontSize,
-        color: color,
+        color: Theme.of(context).textTheme.bodyLarge?.color,
       ),
     );
   }

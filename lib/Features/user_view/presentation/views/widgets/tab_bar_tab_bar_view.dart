@@ -20,13 +20,16 @@ class TabBarAndTabBarViewer extends StatelessWidget {
       child: Column(
         children: [
           TabBar(
+            labelColor:
+                Theme.of(context).scaffoldBackgroundColor == Colors.black
+                    ? Colors.white
+                    : Colors.black,
             dragStartBehavior: DragStartBehavior.down,
             indicatorWeight: 1,
             indicatorSize: TabBarIndicatorSize.tab,
             indicatorColor: Colors.white,
             labelPadding: EdgeInsets.all(3),
             dividerColor: Colors.black,
-            labelColor: Colors.white,
             unselectedLabelColor: Colors.grey,
             tabs: [
               Tab(icon: Icon(Icons.grid_on)), // Posts

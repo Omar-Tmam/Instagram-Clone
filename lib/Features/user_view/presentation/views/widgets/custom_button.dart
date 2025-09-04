@@ -14,7 +14,10 @@ class UserPageButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
         ),
-        backgroundColor: Colors.transparent,
+        backgroundColor:
+            Theme.of(context).scaffoldBackgroundColor == Colors.black
+                ? Colors.transparent
+                : Colors.blue,
         side: BorderSide(color: Colors.white, width: 1),
       ),
       onPressed: () {},

@@ -16,8 +16,8 @@ class FollowingMessageAddSection extends StatelessWidget {
           child: UserPageButton(
             title: 'Following',
             icon: Icon(
-              Icons.keyboard_arrow_down_sharp,
               color: Colors.white,
+              Icons.keyboard_arrow_down_sharp,
             ),
           ),
         ),

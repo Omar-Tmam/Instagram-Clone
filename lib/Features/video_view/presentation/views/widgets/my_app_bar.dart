@@ -21,7 +21,7 @@ class ReelsAppBar extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        Icon(Icons.camera_alt_outlined, color: Colors.white),
+        Icon(Icons.camera_alt_outlined,),
       ],
     );
   }

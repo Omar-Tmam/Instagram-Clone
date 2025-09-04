@@ -61,7 +61,7 @@ class HomeViewBody extends StatelessWidget {
                       SnackBar(content: Text('User Info Loaded Successfully')));
                   GoRouter.of(context).push(AppRouter.kUserInfoView,
                       extra: UserDataArgs(
-                        tagModel: state.tagModel,
+                          tagModel: state.tagModel,
                           reelsModel: state.reelsModel,
                           postsModel: state.postsModel,
                           userInfoModel: state.userInfoModel,
@@ -76,8 +76,12 @@ class HomeViewBody extends StatelessWidget {
                 return AbsorbPointer(
                   absorbing: state is UserInfoLoading,
                   child: ElevatedButton(
-                    style:
-                        ElevatedButton.styleFrom(backgroundColor: Colors.white),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
                     onPressed: () async {
                       await BlocProvider.of<UserInfoCubit>(context)
                           .getUserInfo(userId: controller.text);
@@ -86,11 +90,12 @@ class HomeViewBody extends StatelessWidget {
                         ? CupertinoActivityIndicator(
                             color: Colors.black,
                           )
-                        : CustomText(
-                            color: Colors.black,
-                            title: 'Submit',
-                            fontSize:
-                                getResponsiveFontSize(context, fontSize: 16),
+                        : Text(
+                            'Submit',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: getResponsiveFontSize(context,
+                                    fontSize: 19)),
                           ),
                   ),
                 );

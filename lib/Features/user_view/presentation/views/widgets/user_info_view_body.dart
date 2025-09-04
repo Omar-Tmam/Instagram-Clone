@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:instagram_clone/Core/utils/cubit/app_theme_cubit.dart';
 import 'package:instagram_clone/Core/utils/functions/user_data_args.dart';
 import 'package:instagram_clone/Core/utils/responsive_font_size.dart';
 import 'package:instagram_clone/Core/widgets/custom_text.dart';
@@ -30,7 +32,15 @@ class UserInfoViewBody extends StatelessWidget {
                 title: userDataArgs.userInfoModel.data?.username ?? '',
                 fontSize: getResponsiveFontSize(context, fontSize: 22),
               ),
-              actions: const [
+              actions: [
+                IconButton(
+                    onPressed: () {
+                      context.read<AppThemeCubit>().toggleTheme();
+                    },
+                    icon: Theme.of(context).scaffoldBackgroundColor ==
+                            Colors.black
+                        ? Icon(Icons.light_mode)
+                        : Icon(Icons.dark_mode)),
                 SizedBox(width: 20),
                 Icon(Icons.notifications_none),
                 SizedBox(width: 20),
